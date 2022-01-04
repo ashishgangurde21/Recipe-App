@@ -1,4 +1,4 @@
-import 'package:firestore_withlogin/screens/UserDetails2.dart';
+import 'package:firestore_withlogin/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -133,7 +133,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                       .then((value) {
                                     hidestatusbar();
                                     Navigator.of(context).pushReplacementNamed(
-                                        UserInformation2.routeName);
+                                        HomeScreen.routeName);
                                   });
                                 } catch (e) {
                                   ScaffoldMessenger.of(context)
