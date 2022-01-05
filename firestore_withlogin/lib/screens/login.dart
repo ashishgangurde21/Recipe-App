@@ -1,3 +1,4 @@
+import 'package:firestore_withlogin/Custom%20Widgets/Bottom_Bar.dart';
 import 'package:firestore_withlogin/screens/homescreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -132,8 +133,10 @@ class _LoginScreenState extends State<LoginScreen> {
                                           password: password.text)
                                       .then((value) {
                                     hidestatusbar();
-                                    Navigator.of(context).pushReplacementNamed(
-                                        HomeScreen.routeName);
+                                    Navigator.pushReplacement(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (context) => BottomNav()));
                                   });
                                 } catch (e) {
                                   ScaffoldMessenger.of(context)

@@ -15,7 +15,6 @@ class _FavouritesState extends State<Favourites> {
       appBar: AppBar(),
       drawer: Drawers(),
       body: Center(child: Text('This is Favourites page..')),
-      bottomNavigationBar: BottomNav(),
     );
   }
 }
