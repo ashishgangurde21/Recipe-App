@@ -43,8 +43,8 @@ class SignupScreen extends StatelessWidget {
                       child: Stack(children: [
                         Container(
                           child: Image.network(
-                            'https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=743&q=80',
-                            fit: BoxFit.fill,
+                            "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+                            fit: BoxFit.cover,
                           ),
                           color: Colors.black,
                           height: MediaQuery.of(context).size.height / 4,
@@ -58,7 +58,7 @@ class SignupScreen extends StatelessWidget {
                               child: CircleAvatar(
                                 radius: 80,
                                 backgroundImage: NetworkImage(
-                                    'https://images.unsplash.com/photo-1541562232579-512a21360020?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'),
+                                    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb7XeVpElaj3yF0M2zBadpBwR1H32HQQumw&usqp=CAU'),
                               ),
                             ),
                           ),
@@ -206,25 +206,14 @@ class SignupScreen extends StatelessWidget {
                             Container(
                                 padding: EdgeInsets.fromLTRB(20, 20, 20, 20),
                                 child: ElevatedButton(
-                                    style: ButtonStyle(
-                                      backgroundColor:
-                                          MaterialStateProperty.all(
-                                              Colors.black),
-                                      shape: MaterialStateProperty.all(
-                                        RoundedRectangleBorder(
-                                          borderRadius:
-                                              BorderRadius.circular(13),
-                                          side: BorderSide(color: Colors.white),
-                                        ),
-                                      ),
-                                    ),
                                     child: Padding(
                                       padding: const EdgeInsets.all(10.0),
                                       child:
                                           Text('Already have account?\nLogin',
+                                              textAlign: TextAlign.center,
                                               style: TextStyle(
                                                 fontWeight: FontWeight.bold,
-                                                fontSize: 30,
+                                                fontSize: 12,
                                               )),
                                     ),
                                     onPressed: () {

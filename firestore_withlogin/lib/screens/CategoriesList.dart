@@ -1,48 +1,48 @@
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:firestore_withlogin/Custom%20Widgets/drawer.dart';
 import 'package:firestore_withlogin/screens/recipe.dart';
-import 'package:firestore_withlogin/screens/uploadRecipe.dart';
 import 'package:flutter/material.dart';
 
-class AddItem extends StatefulWidget {
+class CategoryList extends StatefulWidget {
+  var category;
   var data;
-  AddItem({Key key, this.data}) : super(key: key);
-  static const routeName = '/Additem';
+  CategoryList({Key key, this.data, this.category}) : super(key: key);
+
   @override
-  _AddItemState createState() => _AddItemState();
+  _CategorListState createState() => _CategorListState();
 }
 
-class _AddItemState extends State<AddItem> {
-  final FirebaseAuth _auth = FirebaseAuth.instance;
+class _CategorListState extends State<CategoryList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      drawer: Drawers(),
-      floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {
-          Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Upload()));
-        },
-        label: Text('Add'),
-        icon: Icon(Icons.add),
-      ),
-      body: Container(
-          child: Column(
-        children: [
-          for (int i = 0; i < widget.data.length; i++)
-            if (widget.data[i].data()['userId'] == _auth.currentUser.uid)
-              Container(
-                child: CardBuilder(
-                    widget.data[i].data()['Title'],
-                    widget.data[i].data()['description'],
-                    widget.data[i].data()['url'],
-                    widget.data[i].data()['steps'],
-                    widget.data[i].data()['ingredients']),
-              ),
-        ],
-      )),
-    );
+        appBar: AppBar(
+          leading: BackButton(
+            color: Colors.white,
+            onPressed: () => Navigator.pop(context),
+          ),
+          title: Text(widget.category),
+        ),
+        body: ListView(
+          children: [
+            Column(
+              children: [
+                if (widget.data.length > 0)
+                  for (int i = 0; i < widget.data.length; i++)
+                    Container(
+                      child: CardBuilder(
+                          widget.data[i].data()['Title'],
+                          widget.data[i].data()['description'],
+                          widget.data[i].data()['url'],
+                          widget.data[i].data()['steps'],
+                          widget.data[i].data()['ingredients']),
+                    ),
+                if (widget.data.length == 0)
+                  Container(
+                    child: Text('No Data'),
+                  ),
+              ],
+            ),
+          ],
+        ));
   }
 }
 

@@ -42,7 +42,9 @@ class _RecipeDetailsState extends State<RecipeDetails> {
                 ),
               ),
               background: Image.network(
-                widget.url,
+                widget.url == null
+                    ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
+                    : widget.url,
                 fit: BoxFit.cover,
               ),
             ),

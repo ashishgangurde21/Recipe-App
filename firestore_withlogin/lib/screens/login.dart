@@ -1,10 +1,7 @@
-import 'package:firestore_withlogin/Custom%20Widgets/Bottom_Bar.dart';
-import 'package:firestore_withlogin/screens/homescreen.dart';
 import 'package:firestore_withlogin/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
 import 'signup.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -40,8 +37,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           child: Stack(children: [
                             Container(
                               child: Image.network(
-                                'https://images.unsplash.com/photo-1488866022504-f2584929ca5f?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=743&q=80',
-                                fit: BoxFit.fill,
+                                'https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80',
+                                fit: BoxFit.cover,
                               ),
                               color: Colors.black,
                               height: MediaQuery.of(context).size.height / 4,
@@ -55,7 +52,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   child: CircleAvatar(
                                     radius: 90,
                                     backgroundImage: NetworkImage(
-                                        'https://images.unsplash.com/photo-1541562232579-512a21360020?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=334&q=80'),
+                                        'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb7XeVpElaj3yF0M2zBadpBwR1H32HQQumw&usqp=CAU'),
                                   ),
                                 ),
                               ),

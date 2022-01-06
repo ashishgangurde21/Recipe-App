@@ -73,30 +73,23 @@ class _HomeScreenState extends State<HomeScreen> {
                   color: Colors.black),
             ),
           ),
-          Container(
-            child: CardBuilder(
-                widget.data[0].data()['Title'],
-                widget.data[0].data()['description'],
-                widget.data[0].data()['url'],
-                widget.data[0].data()['steps'],
-                widget.data[0].data()['ingredients']),
-          ),
-          Container(
-            child: CardBuilder(
-                widget.data[1].data()['Title'],
-                widget.data[1].data()['description'],
-                widget.data[1].data()['url'],
-                widget.data[1].data()['steps'],
-                widget.data[1].data()['ingredients']),
-          ),
-          Container(
-            child: CardBuilder(
-                widget.data[1].data()['Title'],
-                widget.data[1].data()['description'],
-                widget.data[1].data()['url'],
-                widget.data[1].data()['steps'],
-                widget.data[1].data()['ingredients']),
-          ),
+          for (int i = 0; i < widget.data.length; i++)
+            Container(
+              child: CardBuilder(
+                  widget.data[i].data()['Title'],
+                  widget.data[i].data()['description'],
+                  widget.data[i].data()['url'],
+                  widget.data[i].data()['steps'],
+                  widget.data[i].data()['ingredients']),
+            ),
+          // Container(
+          //   child: CardBuilder(
+          //       widget.data[1].data()['Title'],
+          //       widget.data[1].data()['description'],
+          //       widget.data[1].data()['url'],
+          //       widget.data[1].data()['steps'],
+          //       widget.data[1].data()['ingredients']),
+          // ),
         ],
       ),
     );
@@ -195,7 +188,9 @@ class _CardBuilderState extends State<CardBuilder> {
               ),
             ),
             SizedBox(width: 10), //5
-            Image.network(widget.url)
+            Image.network(widget.url == null
+                ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
+                : widget.url)
           ],
         ),
       ),

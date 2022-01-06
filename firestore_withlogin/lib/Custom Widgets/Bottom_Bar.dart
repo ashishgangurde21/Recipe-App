@@ -1,4 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firestore_withlogin/screens/addScreen.dart';
+import 'package:firestore_withlogin/screens/categories.dart';
 import 'package:firestore_withlogin/screens/favourites.dart';
 import 'package:firestore_withlogin/screens/homescreen.dart';
 import 'package:flutter/material.dart';
@@ -31,11 +33,15 @@ class _BottomNavState extends State<BottomNav> {
     docsList = widget.bottomRef.docs.toList();
     print(docsList);
     return DefaultTabController(
-        length: 2,
-        initialIndex: 0,
+        length: 3,
+        initialIndex: 1,
         child: Scaffold(
           body: TabBarView(
-            children: <Widget>[HomeScreen(data: docsList), Favourites()],
+            children: <Widget>[
+              Categories(data: docsList),
+              HomeScreen(data: docsList),
+              AddItem(data: docsList),
+            ],
           ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(
@@ -51,17 +57,24 @@ class _BottomNavState extends State<BottomNav> {
               tabs: [
                 Tab(
                   icon: Icon(
-                    Icons.event,
+                    Icons.search_outlined,
+                    size: 28.0,
+                  ),
+                  text: 'Categories',
+                ),
+                Tab(
+                  icon: Icon(
+                    Icons.home_max_outlined,
                     size: 24.0,
                   ),
                   text: 'Homepage',
                 ),
                 Tab(
                   icon: Icon(
-                    Icons.home,
+                    Icons.upload,
                     size: 28.0,
                   ),
-                  text: 'Favourites',
+                  text: 'Recipe Uploads',
                 ),
               ],
             ),
