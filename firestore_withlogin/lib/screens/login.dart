@@ -1,5 +1,6 @@
 import 'package:firestore_withlogin/Custom%20Widgets/Bottom_Bar.dart';
 import 'package:firestore_withlogin/screens/homescreen.dart';
+import 'package:firestore_withlogin/screens/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,7 +20,6 @@ class _LoginScreenState extends State<LoginScreen> {
   TextEditingController email = TextEditingController();
 
   TextEditingController password = TextEditingController();
-  Future hidestatusbar() => SystemChrome.setEnabledSystemUIOverlays([]);
 
   @override
   Widget build(BuildContext context) {
@@ -132,11 +132,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                           email: email.text,
                                           password: password.text)
                                       .then((value) {
-                                    hidestatusbar();
                                     Navigator.pushReplacement(
                                         context,
                                         MaterialPageRoute(
-                                            builder: (context) => BottomNav()));
+                                            builder: (context) =>
+                                                SplashScreen()));
                                   });
                                 } catch (e) {
                                   ScaffoldMessenger.of(context)

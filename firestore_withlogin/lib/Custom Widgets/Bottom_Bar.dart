@@ -1,24 +1,41 @@
-import 'package:firestore_withlogin/screens/UserDetails2.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firestore_withlogin/screens/favourites.dart';
-import 'package:firestore_withlogin/screens/addScreen.dart';
 import 'package:firestore_withlogin/screens/homescreen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class BottomNav extends StatefulWidget {
+  final QuerySnapshot bottomRef;
+  const BottomNav({Key key, this.bottomRef}) : super(key: key);
   @override
   _BottomNavState createState() => _BottomNavState();
 }
 
 class _BottomNavState extends State<BottomNav> {
+  List docsList = [];
+  final CollectionReference ref =
+      FirebaseFirestore.instance.collection('Recipes');
+  Future<void> getData() async {
+    QuerySnapshot querySnapshot = await ref.get();
+    docsList = querySnapshot.docs.map((doc) => doc.data()).toList();
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getData();
+  }
+
   @override
   Widget build(BuildContext context) {
+    docsList = widget.bottomRef.docs.toList();
+    print(docsList);
     return DefaultTabController(
         length: 2,
         initialIndex: 0,
         child: Scaffold(
           body: TabBarView(
-            children: <Widget>[HomeScreen(), Favourites()],
+            children: <Widget>[HomeScreen(data: docsList), Favourites()],
           ),
           bottomNavigationBar: Container(
             decoration: BoxDecoration(

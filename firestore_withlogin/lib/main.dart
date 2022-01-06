@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firestore_withlogin/screens/favourites.dart';
 import 'package:firestore_withlogin/screens/UserDetails2.dart';
 import 'package:firestore_withlogin/screens/addScreen.dart';
+import 'package:firestore_withlogin/screens/splashScreen.dart';
 import 'package:firestore_withlogin/screens/userDetails.dart';
 import 'package:flutter/material.dart';
 import 'Custom Widgets/Bottom_Bar.dart';
@@ -37,11 +38,10 @@ class MyApp extends StatelessWidget {
             darkTheme: ThemeData(
                 brightness: Brightness.dark, primarySwatch: Colors.blue),
             themeMode: ThemeMode.light,
-            home: _auth.currentUser != null ? BottomNav() : LoginScreen(),
+            home: _auth.currentUser != null ? SplashScreen() : LoginScreen(),
             routes: {
               SignupScreen.routeName: (ctx) => SignupScreen(),
               LoginScreen.routeName: (ctx) => LoginScreen(),
-              HomeScreen.routeName: (ctx) => HomeScreen(),
               UserInformation.routeName: (ctx) => UserInformation(),
               UserInformation2.routeName: (ctx) => UserInformation2(),
               AddItem.routeName: (ctx) => AddItem(),
