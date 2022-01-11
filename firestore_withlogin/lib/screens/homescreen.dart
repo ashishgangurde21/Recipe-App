@@ -34,12 +34,17 @@ class _HomeScreenState extends State<HomeScreen> {
                 ListTile(
                     h,
                     w,
-                    'https://images.freekaamaal.com/post_images/1612770250.png',
+                    'https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
                     'Continental'),
                 ListTile(
                     h,
                     w,
-                    'https://images.freekaamaal.com/post_images/1612770250.png',
+                    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
+                    'Indian'),
+                ListTile(
+                    h,
+                    w,
+                    'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
                     'Indian'),
               ],
               options: CarouselOptions(
@@ -54,7 +59,7 @@ class _HomeScreenState extends State<HomeScreen> {
             width: w / 1.2,
             margin: EdgeInsets.only(left: w / 20, right: w / 20),
             child: Text(
-              'Hi, Welcome to the app',
+              'Hi, Welcome to FoodZo',
               style: TextStyle(
                   fontSize: w / 15,
                   fontWeight: FontWeight.bold,
