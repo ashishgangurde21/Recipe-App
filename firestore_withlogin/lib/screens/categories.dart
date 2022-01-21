@@ -1,6 +1,7 @@
 import 'package:firestore_withlogin/Custom%20Widgets/drawer.dart';
 import 'package:firestore_withlogin/screens/CategoriesList.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class Categories extends StatefulWidget {
   var data;
@@ -17,94 +18,106 @@ class _CategoriesState extends State<Categories> {
     var h = MediaQuery.of(context).size.height;
     var w = MediaQuery.of(context).size.width;
     return Scaffold(
-        appBar: AppBar(),
-        drawer: Drawers(),
-        body: Column(children: [
-          Container(
-            margin: EdgeInsets.fromLTRB(w / 12, w / 8, w / 12, w / 12),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  child: EventTile(category: "Indian"),
-                  onTap: () {
-                    for (int i = 0; i < widget.data.length; i++) {
-                      if (widget.data[i]['category'] == "Indian") {
-                        passData.add(widget.data[i]);
-                      }
+      appBar: AppBar(
+        title: Text("Categories"),
+      ),
+      drawer: Drawers(),
+      body: Column(children: [
+        Container(
+          margin: EdgeInsets.fromLTRB(w / 12, w / 8, w / 12, w / 12),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                child: EventTile(category: "Indian"),
+                onTap: () {
+                  for (int i = 0; i < widget.data.length; i++) {
+                    if (widget.data[i]['category'] == "Indian") {
+                      passData.add(widget.data[i]);
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CategoryList(
-                                  data: passData,
-                                  category: "Indian",
-                                )));
-                  },
-                ),
-                InkWell(
-                  child: EventTile(category: "Continental"),
-                  onTap: () {
-                    for (int i = 0; i < widget.data.length; i++) {
-                      if (widget.data[i]['category'] == "Continental") {
-                        passData.add(widget.data[i]);
-                      }
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CategoryList(
+                                data: passData,
+                                category: "Indian",
+                              )));
+                },
+              ),
+              InkWell(
+                child: EventTile(category: "Continental"),
+                onTap: () {
+                  for (int i = 0; i < widget.data.length; i++) {
+                    if (widget.data[i]['category'] == "Continental") {
+                      passData.add(widget.data[i]);
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CategoryList(
-                                  data: passData,
-                                  category: "Continental",
-                                )));
-                  },
-                )
-              ],
-            ),
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CategoryList(
+                                data: passData,
+                                category: "Continental",
+                              )));
+                },
+              )
+            ],
           ),
-          Container(
-            margin: EdgeInsets.fromLTRB(w / 12, 0, w / 12, w / 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                InkWell(
-                  child: EventTile(category: "Punjabi"),
-                  onTap: () {
-                    for (int i = 0; i < widget.data.length; i++) {
-                      if (widget.data[i]['category'] == "Punjabi") {
-                        passData.add(widget.data[i]);
-                      }
+        ),
+        Container(
+          margin: EdgeInsets.fromLTRB(w / 12, 0, w / 12, w / 8),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              InkWell(
+                child: EventTile(category: "Punjabi"),
+                onTap: () {
+                  for (int i = 0; i < widget.data.length; i++) {
+                    if (widget.data[i]['category'] == "Punjabi") {
+                      passData.add(widget.data[i]);
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CategoryList(
-                                  data: passData,
-                                  category: "Punjabi",
-                                )));
-                  },
-                ),
-                InkWell(
-                  child: EventTile(category: "South Indian"),
-                  onTap: () {
-                    for (int i = 0; i < widget.data.length; i++) {
-                      if (widget.data[i]['category'] == "South Indian") {
-                        passData.add(widget.data[i]);
-                      }
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CategoryList(
+                                data: passData,
+                                category: "Punjabi",
+                              )));
+                },
+              ),
+              InkWell(
+                child: EventTile(category: "South Indian"),
+                onTap: () {
+                  for (int i = 0; i < widget.data.length; i++) {
+                    if (widget.data[i]['category'] == "South Indian") {
+                      passData.add(widget.data[i]);
                     }
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => CategoryList(
-                                  data: passData,
-                                  category: "South Indian",
-                                )));
-                  },
-                ),
-              ],
-            ),
-          )
-        ]));
+                  }
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => CategoryList(
+                                data: passData,
+                                category: "South Indian",
+                              )));
+                },
+              ),
+            ],
+          ),
+        ),
+        Container(
+          alignment: Alignment.bottomCenter,
+          width: w,
+          height: h / 3.32,
+          child: Image.asset(
+            'lib/SplashscreenPic/hotel.png',
+            fit: BoxFit.cover,
+          ),
+        )
+      ]),
+    );
   }
 }
 

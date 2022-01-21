@@ -43,7 +43,7 @@ class _RecipeDetailsState extends State<RecipeDetails> {
               ),
               background: Image.network(
                 widget.url == null
-                    ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
+                    ? 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg'
                     : widget.url,
                 fit: BoxFit.cover,
               ),

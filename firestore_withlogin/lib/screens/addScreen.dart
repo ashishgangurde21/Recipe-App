@@ -17,7 +17,9 @@ class _AddItemState extends State<AddItem> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text('Uploaded Items'),
+      ),
       drawer: Drawers(),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () {
@@ -117,10 +119,21 @@ class _CardBuilderState extends State<CardBuilder> {
                 ),
               ),
             ),
-            SizedBox(width: 10), //5
-            Image.network(widget.url == null
-                ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
-                : widget.url)
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(50),
+              ),
+              height: h / 8,
+              width: h / 8,
+              child: Image.network(
+                widget.url == null
+                    ? 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg'
+                    : widget.url,
+                fit: BoxFit.contain,
+              ),
+            ),
+            SizedBox(width: 5),
           ],
         ),
       ),

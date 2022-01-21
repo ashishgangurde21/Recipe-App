@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firestore_withlogin/screens/profile.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Drawers extends StatefulWidget {
   @override
@@ -25,8 +26,8 @@ class _DrawersState extends State<Drawers> {
             width: MediaQuery.of(context).size.width,
             child: Stack(children: [
               Container(
-                child: Image.network(
-                  "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+                child: Image.asset(
+                  "lib/SplashscreenPic/drawer_img.jpg",
                   fit: BoxFit.cover,
                 ),
                 color: Colors.black,
@@ -42,8 +43,10 @@ class _DrawersState extends State<Drawers> {
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
                       radius: 68,
-                      backgroundImage: NetworkImage(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb7XeVpElaj3yF0M2zBadpBwR1H32HQQumw&usqp=CAU'),
+                      child: ClipOval(
+                        child: Image.asset(
+                            'lib/SplashscreenPic/profile_buddy.png'),
+                      ),
                     ),
                   ),
                 ),
@@ -77,7 +80,9 @@ class _DrawersState extends State<Drawers> {
               Positioned(
                 top: h / 2.7,
                 child: GestureDetector(
-                  onTap: () {},
+                  onTap: () {
+                    launch('https://forms.gle/aDmEmrq9MyaWPefL6');
+                  },
                   child: Container(
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,

@@ -136,12 +136,12 @@ class _UploadState extends State<Upload> {
                 child: ElevatedButton(
                     child: Text('Upload'),
                     onPressed: () async {
-                      if (authorController.text.isNotEmpty ||
-                          titleController.text.isNotEmpty ||
-                          descriptionController.text.isNotEmpty ||
-                          ingredientsController.text.isNotEmpty ||
-                          stepsController.text.isNotEmpty ||
-                          imageUrlController.text.isNotEmpty ||
+                      if (authorController.text.isNotEmpty &&
+                          titleController.text.isNotEmpty &&
+                          descriptionController.text.isNotEmpty &&
+                          ingredientsController.text.isNotEmpty &&
+                          stepsController.text.isNotEmpty &&
+                          imageUrlController.text.isNotEmpty &&
                           category != null) {
                         await ref.add({
                           'author': authorController.text,

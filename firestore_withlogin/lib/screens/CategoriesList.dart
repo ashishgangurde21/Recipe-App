@@ -36,8 +36,34 @@ class _CategorListState extends State<CategoryList> {
                           widget.data[i].data()['ingredients']),
                     ),
                 if (widget.data.length == 0)
-                  Container(
-                    child: Text('No Data'),
+                  Center(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height,
+                      child: Column(
+                        children: [
+                          SizedBox(
+                            height: 20,
+                          ),
+                          Container(
+                              margin: EdgeInsets.only(left: 20, right: 20),
+                              child: Image.network(
+                                'https://freesvg.org/img/fast-food-menu.png',
+                                height: MediaQuery.of(context).size.height / 2,
+                                fit: BoxFit.contain,
+                              )),
+                          Center(
+                            child: Text(
+                              'Getting Some Lip-Smacking Recipes Soon...',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(
+                                fontSize: 20,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
                   ),
               ],
             ),
@@ -118,9 +144,21 @@ class _CardBuilderState extends State<CardBuilder> {
               ),
             ),
             SizedBox(width: 10), //5
-            Image.network(widget.url == null
-                ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
-                : widget.url)
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(w / 2),
+              ),
+              height: h / 8,
+              width: h / 8,
+              child: Image.network(
+                widget.url == null
+                    ? 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg'
+                    : widget.url,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(width: 5),
           ],
         ),
       ),

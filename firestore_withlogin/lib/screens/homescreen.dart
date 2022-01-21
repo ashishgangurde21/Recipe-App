@@ -25,27 +25,17 @@ class _HomeScreenState extends State<HomeScreen> {
     print(widget.data);
     print("------------------------------------------------");
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: Text("Homepage"),
+      ),
       drawer: Drawers(),
       body: ListView(
         children: [
           CarouselSlider(
               items: <Widget>[
-                ListTile(
-                    h,
-                    w,
-                    'https://images.unsplash.com/photo-1493770348161-369560ae357d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fGZvb2R8ZW58MHx8MHx8&auto=format&fit=crop&w=500&q=60',
-                    'Continental'),
-                ListTile(
-                    h,
-                    w,
-                    'https://images.unsplash.com/photo-1504674900247-0877df9cc836?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                    'Indian'),
-                ListTile(
-                    h,
-                    w,
-                    'https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8N3x8Zm9vZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60',
-                    'Indian'),
+                ListTile(h, w, 'lib/SplashscreenPic/cal1.jpg', 'Continental'),
+                ListTile(h, w, 'lib/SplashscreenPic/cal2.jpg', 'Indian'),
+                ListTile(h, w, 'lib/SplashscreenPic/cal3.jpg', 'Indian'),
               ],
               options: CarouselOptions(
                 onPageChanged: (index, other) {},
@@ -87,14 +77,6 @@ class _HomeScreenState extends State<HomeScreen> {
                   widget.data[i].data()['steps'],
                   widget.data[i].data()['ingredients']),
             ),
-          // Container(
-          //   child: CardBuilder(
-          //       widget.data[1].data()['Title'],
-          //       widget.data[1].data()['description'],
-          //       widget.data[1].data()['url'],
-          //       widget.data[1].data()['steps'],
-          //       widget.data[1].data()['ingredients']),
-          // ),
         ],
       ),
     );
@@ -111,7 +93,7 @@ Widget ListTile(double h, double w, String item, String category) {
             borderRadius: BorderRadius.circular(w / 5),
           ),
           width: w / 1.35,
-          child: Image.network(
+          child: Image.asset(
             item,
             fit: BoxFit.contain,
           ),
@@ -192,10 +174,22 @@ class _CardBuilderState extends State<CardBuilder> {
                 ),
               ),
             ),
-            SizedBox(width: 10), //5
-            Image.network(widget.url == null
-                ? 'https://p.kindpng.com/picc/s/151-1519867_healthy-meal-png-food-top-view-png-transparent.png'
-                : widget.url)
+            SizedBox(width: 5), //5
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.transparent,
+                borderRadius: BorderRadius.circular(w / 2),
+              ),
+              height: h / 8,
+              width: h / 8,
+              child: Image.network(
+                widget.url == null
+                    ? 'https://images.immediate.co.uk/production/volatile/sites/30/2020/08/chorizo-mozarella-gnocchi-bake-cropped-9ab73a3.jpg'
+                    : widget.url,
+                fit: BoxFit.cover,
+              ),
+            ),
+            SizedBox(width: 5), //5
           ],
         ),
       ),

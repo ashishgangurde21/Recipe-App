@@ -23,8 +23,8 @@ class _ProfileState extends State<Profile> {
             width: MediaQuery.of(context).size.width,
             child: Stack(children: [
               Container(
-                child: Image.network(
-                  "https://images.unsplash.com/photo-1550989460-0adf9ea622e2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+                child: Image.asset(
+                  "lib/SplashscreenPic/drawer_img.jpg",
                   fit: BoxFit.cover,
                 ),
                 color: Colors.black,
@@ -39,9 +39,11 @@ class _ProfileState extends State<Profile> {
                     radius: 84,
                     backgroundColor: Colors.white,
                     child: CircleAvatar(
-                      radius: 80,
-                      backgroundImage: NetworkImage(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQrb7XeVpElaj3yF0M2zBadpBwR1H32HQQumw&usqp=CAU'),
+                      radius: 68,
+                      child: ClipOval(
+                        child: Image.asset(
+                            'lib/SplashscreenPic/profile_buddy.png'),
+                      ),
                     ),
                   ),
                 ),
@@ -176,6 +178,16 @@ class _ProfileState extends State<Profile> {
                         );
                       }),
                 ),
+              ),
+              Positioned(
+                top: MediaQuery.of(context).size.height / 1.8,
+                left: MediaQuery.of(context).size.width / 4,
+                child: Container(
+                    height: MediaQuery.of(context).size.height / 4,
+                    child: Image.asset(
+                      'lib/SplashscreenPic/profile_end.png',
+                      fit: BoxFit.contain,
+                    )),
               )
             ]),
           ),

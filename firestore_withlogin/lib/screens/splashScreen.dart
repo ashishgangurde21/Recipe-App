@@ -31,6 +31,29 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Center(
+        child: Stack(
+          children: [
+            Container(
+              child: Image.asset(
+                'lib/SplashscreenPic/foodzo.png',
+                fit: BoxFit.cover,
+              ),
+              height: MediaQuery.of(context).size.height,
+            ),
+            Positioned(
+              bottom: MediaQuery.of(context).size.height / 3,
+              left: MediaQuery.of(context).size.width / 2.3,
+              child: Container(
+                child: CircularProgressIndicator(
+                  color: Colors.white,
+                ),
+              ),
+            )
+          ],
+        ),
+      ),
+    );
   }
 }
